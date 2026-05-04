@@ -30,6 +30,7 @@ public class Bowler : MonoBehaviour
     private void ChangeBowlingStyle(BowlingStyle bowlingStyle)
     {
         _bowlingStyle = bowlingStyle;
+        Debug.Log($"Switching Bowling Style to {_bowlingStyle}");
     }
 
     private void SwitchBowlerSide()
@@ -41,14 +42,57 @@ public class Bowler : MonoBehaviour
     {
         Ball ball = Instantiate(_ballPrefab, _ballSpawnPosition.position, Quaternion.identity).
             GetComponent<Ball>();
+
+        ball.Setup(_bowlingStyle, GetBowlingStyleMultiplier());
         
+        switch (_bowlingStyle)
+        {
+            case BowlingStyle.Spin:
+                ball.velocity = GetStraightBowlingVelocity(ball);
+                break;
+            case BowlingStyle.Swing:
+                ball.velocity = GetSwingBowlingVelocity(ball, ball.bowlingStyleMultiplier);
+                break;
+        }
+        
+    }
+
+    private float GetBowlingStyleMultiplier()
+    {
+        float power = _powerSlider.Power;
+
+        if (power > 0.84)
+        {
+            return 1;
+        }
+        else if(power > 0.56)
+        {
+            return .7f;
+        }
+        else if(power > 0.28)
+        {
+            return .4f;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    private Vector3 GetStraightBowlingVelocity(Ball ball)
+    {
         Vector3 targetDifference = _ballBounceMarker.position - ball.transform.position;
 
-        Vector3 initVelocity = new Vector3(
+        return new Vector3(
             targetDifference.x / 0.75f,
             1,
             targetDifference.z / 0.75f);
-        
-        ball.velocity = initVelocity;
+    }
+    private Vector3 GetSwingBowlingVelocity(Ball ball, float bowlStyleMultiplier)
+    {
+        Vector3 initVelocity = GetStraightBowlingVelocity(ball);
+
+        return BallPhysics.Instance.RotateVectorOnY(initVelocity,
+            BallPhysics.Instance.maxSwing * bowlStyleMultiplier);
     }
 }

@@ -2812,7 +2812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallPhysicsData
   gravity: 9.8
-  maxSwing: 20
+  maxSwing: 10
   maxSpin: 10
   bounce: 0.8
 --- !u!1 &1751335563

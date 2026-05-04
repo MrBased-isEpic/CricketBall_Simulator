@@ -1,11 +1,7 @@
-using UnityEngine;
+
 
 public class NormalBowling : IBallState
 {
-    public void Setup(Ball ball)
-    {
-        
-    }
 
     public void Update(Ball ball)
     {
