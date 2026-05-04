@@ -357,6 +357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 210056434}
+  - component: {fileID: 210056435}
   m_Layer: 0
   m_Name: Bowler
   m_TagString: Untagged
@@ -381,6 +382,26 @@ Transform:
   - {fileID: 1751335564}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210056435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210056433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a2a0965ddbb0943a1f97c09abe39f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bowler
+  _swingButton: {fileID: 1331184437}
+  _spinButton: {fileID: 903184677}
+  _changeBowlerSideButton: {fileID: 849335467}
+  _bowlButton: {fileID: 1299386001}
+  _powerSlider: {fileID: 1916093253}
+  _ballBounceMarker: {fileID: 874669556}
+  _ballSpawnPosition: {fileID: 1751335564}
+  _ballPrefab: {fileID: 183760105108690861, guid: 9ce92702d1aee8a47a7ad86133f6b03e, type: 3}
 --- !u!1 &215728108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 874669556}
+  - component: {fileID: 874669557}
   m_Layer: 0
   m_Name: BallBounce
   m_TagString: Untagged
@@ -1514,6 +1536,19 @@ Transform:
   - {fileID: 542211596}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &874669557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874669555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caabce8247f1f6a49b080852720d8e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallBounceMarker
+  _moveSpeed: 4
 --- !u!1 &903184674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,6 +2767,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670357520}
   m_CullTransparentMesh: 1
+--- !u!1 &1721266134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721266135}
+  - component: {fileID: 1721266136}
+  m_Layer: 0
+  m_Name: BallPhysics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1721266135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721266134}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1721266136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721266134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ee6e5248622264896d1e0d1e005315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysicsData
+  gravity: 9.8
+  maxSwing: 20
+  maxSpin: 10
+  bounce: 0.6
 --- !u!1 &1751335563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,6 +2895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1916093252}
+  - component: {fileID: 1916093253}
   m_Layer: 5
   m_Name: PowerSlider
   m_TagString: Untagged
@@ -2840,6 +2924,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1916093253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916093251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf420af21fe36d4f8e7acb0ceebefcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerSlider
+  _powerLine: {fileID: 1235681962}
+  _powerLineMaxHeight: 350
 --- !u!4 &2108603571 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 189272202191634403, guid: e3763f18aa328d44aa9c308d4e026261, type: 3}
@@ -2913,3 +3011,4 @@ SceneRoots:
   - {fileID: 874669556}
   - {fileID: 511567702}
   - {fileID: 1284855506}
+  - {fileID: 1721266135}
