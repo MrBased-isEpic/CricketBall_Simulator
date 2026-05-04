@@ -27,17 +27,17 @@ public class Bowler : MonoBehaviour
         _bowlButton.onClick.AddListener(Bowl);
     }
 
+    #region Interface
+    
     private void ChangeBowlingStyle(BowlingStyle bowlingStyle)
     {
         _bowlingStyle = bowlingStyle;
         Debug.Log($"Switching Bowling Style to {_bowlingStyle}");
     }
-
     private void SwitchBowlerSide()
     {
         transform.position = Vector3.Scale(transform.position, new Vector3(1f, 1f, -1f));
     }
-
     private void Bowl()
     {
         Ball ball = Instantiate(_ballPrefab, _ballSpawnPosition.position, Quaternion.identity).
@@ -56,7 +56,11 @@ public class Bowler : MonoBehaviour
         }
         
     }
+    
+    #endregion
 
+    #region BowlingCalculations
+    
     private float GetBowlingStyleMultiplier()
     {
         float power = _powerSlider.Power;
@@ -78,7 +82,6 @@ public class Bowler : MonoBehaviour
             return 0;
         }
     }
-
     private Vector3 GetStraightBowlingVelocity(Ball ball)
     {
         Vector3 targetDifference = _ballBounceMarker.position - ball.transform.position;
@@ -95,4 +98,6 @@ public class Bowler : MonoBehaviour
         return BallPhysics.Instance.RotateVectorOnY(initVelocity,
             BallPhysics.Instance.maxSwing * bowlStyleMultiplier);
     }
+    
+    #endregion
 }

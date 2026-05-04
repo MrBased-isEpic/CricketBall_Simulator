@@ -2,7 +2,7 @@
 
 public class SwingBowling : IBallState
 {
-
+    // Rotates the velocity around the y-axis to achieve the effect.
     public void Update(Ball ball)
     {
         ball.ApplyGravity();

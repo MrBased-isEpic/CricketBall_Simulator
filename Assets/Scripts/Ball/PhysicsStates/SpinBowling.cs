@@ -3,6 +3,7 @@
 public class SpinBowling : IBallState
 {
 
+    // Same as normalBowling, But rotates the velocity and quits on first bounce.
     public void Update(Ball ball)
     {
         ball.ApplyGravity();

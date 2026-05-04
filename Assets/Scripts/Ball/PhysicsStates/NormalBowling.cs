@@ -2,7 +2,7 @@
 
 public class NormalBowling : IBallState
 {
-
+    // Maintains lateral velocity while applying gravity.
     public void Update(Ball ball)
     {
         ball.ApplyGravity();
