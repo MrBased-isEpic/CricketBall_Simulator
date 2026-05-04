@@ -39,6 +39,16 @@ public class Bowler : MonoBehaviour
 
     private void Bowl()
     {
-        Debug.Log(_ballBounceMarker.position);
+        Ball ball = Instantiate(_ballPrefab, _ballSpawnPosition.position, Quaternion.identity).
+            GetComponent<Ball>();
+        
+        Vector3 targetDifference = _ballBounceMarker.position - ball.transform.position;
+
+        Vector3 initVelocity = new Vector3(
+            targetDifference.x / 0.75f,
+            1,
+            targetDifference.z / 0.75f);
+        
+        ball.velocity = initVelocity;
     }
 }

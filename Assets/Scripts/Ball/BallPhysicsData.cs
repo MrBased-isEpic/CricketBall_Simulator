@@ -17,7 +17,9 @@ public class BallPhysicsData : MonoBehaviour
     public float gravity;
 
     [Space]
+    [Tooltip("The angle from which the ball will be thrown")]
     public float maxSwing;
+    [Tooltip("The angle the ball will change trajectory after first bounce")]
     public float maxSpin;
 
     [Space]
